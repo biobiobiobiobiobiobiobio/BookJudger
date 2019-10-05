@@ -1,0 +1,11 @@
+from keras.models import Sequential
+from keras.layers import Dense, Activation
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+model = Sequential([
+    Dense(32, input_shape=(784,)),
+    Activation('relu'),
+    Dense(10),
+    Activation('softmax'),
+])
