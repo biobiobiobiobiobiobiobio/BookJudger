@@ -1,11 +1,45 @@
+import keras
 from keras.models import Sequential
-from keras.layers import Dense, Activation
+from keras.layers import Dense, Activation, Flatten
+from keras.preprocessing.image import ImageDataGenerator
+import cv2
+import PIL
+
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-model = Sequential([
-    Dense(32, input_shape=(784,)),
-    Activation('relu'),
-    Dense(10),
-    Activation('softmax'),
-])
+model = Sequential()
+model.add(Dense(20, input_shape=(20,20,3)))
+model.add(Flatten())
+model.add(Activation('relu'))
+model.add(Dense(20))
+model.compile(optimizer='sgd', loss='mean_squared_error', metrics=['mae', 'acc'])
+
+batch_size=16
+
+train_datagen = ImageDataGenerator(
+        rescale=1./255,
+        shear_range=0.2,
+        zoom_range=0.2,
+        horizontal_flip=True)
+
+test_datagen = ImageDataGenerator(rescale=1./255)
+
+train_generator = train_datagen.flow_from_directory(
+        'D:\Pictures',
+        target_size=(20, 20),
+        batch_size=32,
+        class_mode='binary')
+
+validation_generator = test_datagen.flow_from_directory(
+        'D:\Pictures',
+        target_size=(20, 20),
+        batch_size=32,
+        class_mode='binary')
+
+model.fit_generator(
+        train_generator,
+        steps_per_epoch=1,
+        epochs=2,
+        validation_data=validation_generator,
+        validation_steps=4)
