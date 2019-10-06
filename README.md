@@ -18,6 +18,10 @@ https://www.guru99.com/introduction-to-selenium.html
 James Loy, "How To Build Your Own Neural Network from Scratch in Python"
 https://towardsdatascience.com/how-to-build-your-own-neural-network-from-scratch-in-python-68998a08e4f6
 
+"How To Get Selenium To Wait For Page Load After a Click"
+https://blog.codeship.com/get-selenium-to-wait-for-page-load
+
+
 Francois Chollet, "Building Powerful Image Classification Models Using Very Little Data"
 https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html
 
