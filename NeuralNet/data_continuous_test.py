@@ -55,11 +55,7 @@ model.compile(loss='mean_squared_error',
               metrics=['accuracy'])
 
 model.fit(x_train, y_train,
-<<<<<<< HEAD
-          epochs=25,
-=======
           epochs=20,
->>>>>>> 2ecd60045c60c3df18054f69e235dfc716567f8f
           batch_size=128)
 score = model.evaluate(x_test, y_test, batch_size=128)
 model.save("test1.h5")
