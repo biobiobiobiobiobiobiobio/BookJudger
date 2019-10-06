@@ -34,7 +34,7 @@ while index < 440:
 x_train = np.zeros((0,4608))
 y_train = np.array([])
 
-while index < 4400:
+while index < 4699:
 	im = cv2.imread(r"..\..\books\\" + str(index) + ".jpg")
 	im = cv2.resize(im, (32, 48))
 	im = np.divide(im, 255)
@@ -44,11 +44,11 @@ while index < 4400:
 	index += 1
 	line = indexer.readline()
 
-modelType1 = []
-for n in range(0, 10):	
-	model = train_continuous_network(x_train, y_train)
-	modelType1.append(model)
-modelType2 = []
+#modelType1 = []
+#for n in range(0, 10):	
+model = train_continuous_network(x_train, y_train)
+#	modelType1.append(model)
+#modelType2 = []
 #for n in range(0, 5):	
 #	model = train_continuous_network2(x_train, y_train)
 #	modelType2.append(model)
@@ -60,11 +60,11 @@ modelType2 = []
 #for n in range(0, 5):	
 #	model = train_continuous_network4(x_train, y_train)
 #	modelType4.append(model)
-for i in range(0, 10):
-	print()
-	print("Base Model " + str(i))
-	test_model(x_test, y_test, modelType1[i])
-	save_model(model, "model10" + str(i))
+#for i in range(0, 10):
+#	print()
+#	print("Base Model " + str(i))
+#	test_model(x_test, y_test, modelType1[i])
+save_model(model, "hdmodel")
 #for i in range(0, 5):
 #	print()
 #	print("Model 2" + str(i))
