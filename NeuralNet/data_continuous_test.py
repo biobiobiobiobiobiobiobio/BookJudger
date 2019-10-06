@@ -31,5 +31,4 @@ model.fit(x_train, y_train,
           batch_size=128)
 score = model.evaluate(x_test, y_test, batch_size=128)
 
-rand = np.random.random((10, 4608))
-model.predict(rand)
+model.save("test.h5")
