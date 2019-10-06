@@ -5,8 +5,8 @@ import cv2
 import numpy as np
 
 x_test = np.zeros((0,4608))
-model = load_model("test1.h5")
-im = cv2.imread(r"..\..\books\\" + sys.argv[1] + ".png")
+model = load_model("model.h5")
+im = cv2.imread(r"..\..\books\\" + sys.argv[1] + ".jpg")
 im = cv2.resize(im, (32, 48))
 im = np.divide(im, 255)
 im = im.flatten()

@@ -66,7 +66,7 @@ model.compile(loss='categorical_crossentropy',
 			  metrics=['acc'])
 
 model.fit(x_train, y_train,
-          epochs=100,
+          epochs=1000,
           batch_size=128)
 
 model.save("test1.h5")
