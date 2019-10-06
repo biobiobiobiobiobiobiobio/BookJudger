@@ -1,14 +1,14 @@
 # BookJudger
 Neural Algorithm trained to generate a 5-star-rating given a book cover image.
 
-#Data Collection
+## Data Collection
 The purpose of the BookScraper is to navigate a list of recently published books on www.goodreads.com. Collecting cover thumbnails and associating them with ratings in an index file.
 
 Created using Selenium webdriver.
 
-#Neural Net
+## Neural Net
 
-#References
+## References
 Matthew Heusser, "Getting Started with WebDriver-Selenium for Java in Eclipse"
 https://saucelabs.com/resources/articles/getting-started-with-webdriver-selenium-for-java-in-eclipse
 
@@ -25,6 +25,6 @@ https://blog.codeship.com/get-selenium-to-wait-for-page-load
 Francois Chollet, "Building Powerful Image Classification Models Using Very Little Data"
 https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html
 
-#Disclaimer
+## Disclaimer
 Original image files and ratings are copyright Goodreads, Inc. www.goodreads.com
 Use of these cover images is academic fair use of copyright materials.
