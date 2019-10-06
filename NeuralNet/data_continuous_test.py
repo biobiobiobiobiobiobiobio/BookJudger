@@ -17,24 +17,27 @@ import cv2
 #im3 = im3.flatten()
 
 index = 1
-indexer = open(r"data\text") #finish
+indexer = open(r"..\..\books\index.txt") #finish
+x_test = np.zeros((0,11250))
+y_test = np.array([])
 line = indexer.readline()
-while index < 20
-	im = cv2.imread(index + ".jpg")
+while index < 20:
+	im = cv2.imread(r"..\..\books\\" + str(index) + ".png")
 	im = np.divide(im, 255)
 	im = im.flatten()
-	x_test.append(im)
-	y_test.append(line)
+	x_test = np.concatenate([x_test, im[None,:]])
+	y_test = np.append(y_test, line)
 	index += 1
 	line = indexer.readline()
-	
+x_train = np.zeros((0,11250))
+y_train = np.array([])
 
-while line != "\%end"
-	im = cv2.imread(index + ".jpg")
+while index < 105:
+	im = cv2.imread(r"..\..\books\\" + str(index) + ".png")
 	im = np.divide(im, 255)
 	im = im.flatten()
-	x_train.append(im)
-	y_train.append(line)
+	x_train = np.concatenate([x_train, im[None,:]])
+	y_train = np.append(y_train, line)
 	index += 1
 	line = indexer.readline()
 
@@ -42,7 +45,7 @@ model = Sequential()
 # Dense(64) is a fully-connected layer with 64 hidden units.
 # in the first layer, you must specify the expected input data shape:
 # here, 20-dimensional vectors.
-model.add(Dense(64, activation='relu', input_dim=10575))
+model.add(Dense(64, activation='relu', input_dim=11250))
 model.add(Dropout(0.5))
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.5))
@@ -57,6 +60,7 @@ model.compile(loss='mean_squared_error',
 model.fit(x_train, y_train,
           epochs=20,
           batch_size=128)
+
 score = model.evaluate(x_test, y_test, batch_size=128)
 model.save("test1.h5")
 print(score)
